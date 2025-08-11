@@ -36,5 +36,6 @@ async def conversation_analysis_usecase(input_message, show_tools_only=False):
 # teste
 if __name__ == "__main__":
     import asyncio
-    result = asyncio.run(conversation_analysis_usecase("acesse as compras do banco e preveja de forma simples qual cliente pode comprar bastante nos próximos meses."))
-    print(result)
+    result = asyncio.run(conversation_analysis_usecase("""
+    qual é o nome da companhia que mais teve vendas convertidas?
+    """))
