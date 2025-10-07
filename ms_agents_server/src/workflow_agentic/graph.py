@@ -1,5 +1,5 @@
 from langgraph.graph import StateGraph, START, MessagesState, END
-from ms_agents_server.graph.agents import NetworkAgentsSupervisor
+from .agents import NetworkAgentsSupervisor
 
 
 class GraphSupervisor:
@@ -26,4 +26,5 @@ class GraphSupervisor:
             .add_edge("agent_prescriptive_analysis", "supervisor_analysis")
             .compile()
         )
+        
         return supervisor_graph

@@ -1,6 +1,6 @@
 from langchain_community.utilities import SQLDatabase
 from langchain_community.agent_toolkits import SQLDatabaseToolkit
-from ms_agents_server.infrastructure.connection_openai import ConnectionAzureOpenai
+from ms_agents_server.src.infrastructure.connection_openai import ConnectionAzureOpenai
 from dotenv import load_dotenv
 import os
 

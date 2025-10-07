@@ -1,5 +1,5 @@
-from ms_agents_server.graph.graph import GraphSupervisor
-from ms_agents_server.service.messages_service import pretty_print_messages, pretty_print_tools_only
+from ms_agents_server.src.workflow_agentic.graph import GraphSupervisor
+from ms_agents_server.src.service.messages_service import pretty_print_messages, pretty_print_tools_only
 import logging
 
 logging.basicConfig(level=logging.INFO)
@@ -33,9 +33,9 @@ async def conversation_analysis_usecase(input_message, show_tools_only=False):
     
     return "Nenhuma resposta encontrada"
 
-# teste
-if __name__ == "__main__":
-    import asyncio
-    result = asyncio.run(conversation_analysis_usecase("""
-    qual é o nome da companhia que mais teve vendas convertidas?
-    """))
+# # teste
+# if __name__ == "__main__":
+#     import asyncio
+#     result = asyncio.run(conversation_analysis_usecase("""
+#     qual é o nome da companhia que mais teve vendas convertidas?
+#     """))

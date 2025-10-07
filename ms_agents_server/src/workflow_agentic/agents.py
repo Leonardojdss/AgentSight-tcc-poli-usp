@@ -1,12 +1,12 @@
 from langgraph.prebuilt import create_react_agent
-from ms_agents_server.infrastructure.connection_openai import ConnectionAzureOpenai
+from ms_agents_server.src.infrastructure.connection_openai import ConnectionAzureOpenai
 from typing import Annotated
 from langchain_core.tools import tool, InjectedToolCallId
 from langgraph.prebuilt import InjectedState, create_react_agent
 from langgraph.graph import MessagesState, END
 from langgraph.types import Command
 from langgraph.prebuilt import create_react_agent
-from ms_agents_server.graph.tools import DatabaseSQLTool
+from .tools import DatabaseSQLTool
 
 llm = ConnectionAzureOpenai.llm_azure_openai()
 tool_sql = DatabaseSQLTool().tool_sql()
@@ -42,7 +42,7 @@ class NetworkAgentsSupervisor:
 
         return handoff_tool
 
-    agent_descriptive_analysis_prompt = prompt("ms_agents_server/prompts/analise_descritiva_prompt.txt")
+    agent_descriptive_analysis_prompt = prompt("ms_agents_server/src/prompts/analise_descritiva_prompt.txt")
 
     @staticmethod
     async def agent_descriptive_analysis():
@@ -59,7 +59,7 @@ class NetworkAgentsSupervisor:
         description="Atribuir tarefa a um agente de análise descritiva.",
     )
 
-    agent_diagnostic_analysis_prompt = prompt("ms_agents_server/prompts/analise_diagnostica_prompt.txt")
+    agent_diagnostic_analysis_prompt = prompt("ms_agents_server/src/prompts/analise_diagnostica_prompt.txt")
 
     @staticmethod
     async def agent_diagnostic_analysis():
@@ -77,7 +77,7 @@ class NetworkAgentsSupervisor:
         description="Atribuir tarefa a um agente de análise diagnóstica.",
     )
 
-    agent_predictive_analysis_prompt = prompt("ms_agents_server/prompts/analise_preditiva_prompt.txt")
+    agent_predictive_analysis_prompt = prompt("ms_agents_server/src/prompts/analise_preditiva_prompt.txt")
 
     @staticmethod
     async def agent_predictive_analysis():
@@ -94,7 +94,7 @@ class NetworkAgentsSupervisor:
         description="Atribuir tarefa a um agente de análise preditiva.",
     )
 
-    agent_prescriptive_analysis_prompt = prompt("ms_agents_server/prompts/analise_prescritiva_prompt.txt")
+    agent_prescriptive_analysis_prompt = prompt("ms_agents_server/src/prompts/analise_prescritiva_prompt.txt")
 
     @staticmethod
     async def agent_prescriptive_analysis():                    
@@ -111,7 +111,7 @@ class NetworkAgentsSupervisor:
         description="Atribuir tarefa a um agente de análise prescritiva.",
     )
 
-    prompt_agent_supervisor = prompt("ms_agents_server/prompts/supervisor_prompt.txt")
+    prompt_agent_supervisor = prompt("ms_agents_server/src/prompts/supervisor_prompt.txt")
 
     @staticmethod
     def supervisor_analysis():
