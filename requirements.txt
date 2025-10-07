@@ -8,3 +8,4 @@ langgraph-supervisor==0.0.27
 langchain-openai==0.3.22
 psycopg2-binary==2.9.10
 SQLAlchemy==2.0.41
+langfuse==3.6.1
