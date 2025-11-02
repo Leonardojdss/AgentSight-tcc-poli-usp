@@ -1,9 +1,9 @@
 from fastapi import FastAPI
-from ms_agents_server.src.controller.routes import route
+from ms_agents_server.src.controller.routes import router
 
 app = FastAPI()
 
-app.include_router(route, prefix="/ms_document_intelligence", tags=["Document Intelligence"])
+app.include_router(router, prefix="/ms_agent_server", tags=["conversation analysis"])
 
 if __name__ == "__main__":
     import uvicorn

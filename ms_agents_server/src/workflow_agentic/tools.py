@@ -8,7 +8,7 @@ load_dotenv()
 
 class DatabaseSQLTool:
 
-    llm = ConnectionAzureOpenai.llm_azure_openai()
+    llm = ConnectionAzureOpenai.llm_openai_platform(model="openai:gpt-5-mini")
 
     def __init__(self):
         self.host = os.getenv("DB_HOST")

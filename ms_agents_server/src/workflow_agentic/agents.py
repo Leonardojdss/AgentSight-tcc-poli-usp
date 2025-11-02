@@ -8,7 +8,7 @@ from langgraph.types import Command
 from langgraph.prebuilt import create_react_agent
 from .tools import DatabaseSQLTool
 
-llm = ConnectionAzureOpenai.llm_azure_openai()
+llm = ConnectionAzureOpenai.llm_openai_platform()
 tool_sql = DatabaseSQLTool().tool_sql()
 
 class NetworkAgentsSupervisor:
