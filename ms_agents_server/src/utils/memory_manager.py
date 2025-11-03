@@ -35,6 +35,5 @@ class MemoryManager:
         
         return self._memories[client_id]
 
-
 # Instância global do gerenciador de memória
 memory_manager = MemoryManager()

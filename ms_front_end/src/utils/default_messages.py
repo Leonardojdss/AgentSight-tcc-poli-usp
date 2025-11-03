@@ -1,0 +1,1 @@
+FALLBACK_MESSAGE = "Não conseguimos responder a sua mensagem agora, tente novamente mais tarde"
