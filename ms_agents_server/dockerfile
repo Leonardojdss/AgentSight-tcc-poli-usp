@@ -1,0 +1,32 @@
+FROM python:3.12.10
+
+# Prevent interactive prompts during package installation
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Set Python environment variables
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONPATH=/src
+
+# Create symbolic links for python commands
+RUN ln -s /usr/bin/python3 /usr/bin/python
+RUN ln -s /usr/bin/pip3 /usr/bin/pip
+
+# Create app directory
+WORKDIR /app
+
+# Install Python dependencies
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+# Copy the entire ms_agents directory
+COPY . ./ms_agents_server/
+
+# Copy .env file to the correct location
+COPY .env ./ms_agents_server/
+
+# Expose API port
+EXPOSE 8000
+
+# Run the application
+CMD ["uvicorn", "ms_agents_server.src.main:app", "--host", "0.0.0.0", "--port", "8000"]

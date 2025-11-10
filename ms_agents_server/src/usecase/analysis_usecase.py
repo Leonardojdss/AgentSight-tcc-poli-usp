@@ -21,7 +21,8 @@ class ConversationAnalysisHandler:
         input_message: str, 
         client_id: str,
         thread_id: str = None,
-        show_tools_only: bool = False
+        show_tools_only: bool = False,
+        max_messages: int = 6
     ):
         """
         Processa análise conversacional com memória de curto prazo isolada por cliente.
@@ -31,6 +32,7 @@ class ConversationAnalysisHandler:
             client_id: Identificador único do cliente (obrigatório para isolamento de memória)
             thread_id: Identificador da thread de conversação (opcional, será gerado se não fornecido)
             show_tools_only: Se True, mostra apenas as chamadas de ferramentas
+            max_messages: Número máximo de mensagens a manter no contexto (padrão: 6)
             
         Returns:
             str: Resposta do agente
@@ -39,8 +41,11 @@ class ConversationAnalysisHandler:
         if thread_id is None:
             thread_id = client_id
                 
-        # Criar grafo com memória específica do cliente
-        graph_supervisor_analysis = await GraphSupervisor.analysis_supervisor_graph(client_id=client_id)
+        # Criar grafo com memória específica do cliente e limite de mensagens
+        graph_supervisor_analysis = await GraphSupervisor.analysis_supervisor_graph(
+            client_id=client_id,
+            max_messages=max_messages
+        )
 
         # Configuração com thread_id para isolar conversas
         config = {

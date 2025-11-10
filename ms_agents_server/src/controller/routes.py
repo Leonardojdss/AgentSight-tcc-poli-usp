@@ -94,7 +94,7 @@ async def agent_conversation_endpoint(data: TextInput) -> Dict[str, str]:
         )
         
     except Exception as error:
-        # Erros inesperados
+        # Erros gerais
         logger.exception(
             f"Cliente {client_id}: Erro inesperado ao processar conversa",
             exc_info=error

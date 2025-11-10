@@ -19,12 +19,13 @@ class MemoryManager:
     def __init__(self):
         self._memories: Dict[str, InMemorySaver] = {}
     
-    def get_memory(self, client_id: str) -> InMemorySaver:
+    def get_memory(self, client_id: str, n: int = 6) -> InMemorySaver:
         """
         Obtém ou cria uma instância de InMemorySaver para o client_id.
         
         Args:
             client_id: Identificador único do cliente
+            n: Número de itens a serem mantidos na memória (padrão é 6)
             
         Returns:
             InMemorySaver: Instância de memória para o cliente
