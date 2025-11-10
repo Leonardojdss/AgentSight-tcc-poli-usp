@@ -185,22 +185,6 @@ ms_front_end/
          │                           │                            │
 ```
 
-## 💻 Componentes Técnicos
-
-### 1. Session State Management
-
-```python
-# Inicialização do estado da sessão
-if "messages" not in st.session_state:
-    st.session_state.messages = []
-
-# Estrutura de uma mensagem:
-{
-    "role": "user" | "assistant",
-    "content": "Texto da mensagem..."
-}
-```
-
 **Características:**
 - Persiste durante toda a sessão do navegador
 - Reinicia ao recarregar a página
